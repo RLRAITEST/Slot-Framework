@@ -13,7 +13,7 @@ SlotFolder/
   README.md             # this file
 ```
 
-Replace `<game_id>` with the Stake game id once the sample is copied (see repo gap brief, items 2–3). Until then, `math/` and `web/` are empty trees ready for the official kits.
+Replace `<game_id>` with the Stake game id once the sample is copied. Do **not** copy `games/0_0_*` or `apps/cluster|scatter` until the design of record in `Framework/Content/Game Design Documents/` is `fork-locked` (template §14 or equivalent in uploaded docs). Until then, `math/` and `web/` are kit roots only.
 
 Kits:
 
@@ -24,9 +24,67 @@ Kits:
 
 Do not add imports, workspace packages, Make includes, Vite aliases, or scripts that reach `../Framework` or `/Framework`. Framework recipes describe *how* to change the sample; they are not imported by Python or the Vite graph.
 
+## Init
+
+`math/` and `web/` ship as empty kit roots (placeholder READMEs only). Init vendors the official SDKs into those folders and installs dependencies. This does **not** create your game. Do not copy `games/0_0_*` or `apps/cluster|scatter` to a `<game_id>` until the design of record in `Framework/Content/Game Design Documents/` is `fork-locked` (template §14).
+
+### 1. Toolchain (Windows)
+
+| Tool | Version / notes |
+|---|---|
+| Git | Required to clone the kits |
+| Python | 3.12+ ([math-sdk](https://github.com/StakeEngine/math-sdk) requires `>= 3.12`) |
+| Make | Required for `make setup` / `make run`. Install via Chocolatey (`choco install make`) or use Git Bash / WSL |
+| Node | **22.16.0** ([web-sdk](https://github.com/StakeEngine/web-sdk)). On Windows use [nvm-windows](https://github.com/coreybutler/nvm-windows) or the Node installer |
+| pnpm | **10.5.0** (`npm install pnpm@10.5.0 -g`) |
+| Rust / Cargo | Only needed for the math optimizer, not for a first uncompressed book run |
+
+Confirm:
+
+```powershell
+python --version    # 3.12.x
+node -v             # v22.16.0
+pnpm -v             # 10.5.0
+make --version
+```
+
+Official kit docs: [math-sdk README](https://github.com/StakeEngine/math-sdk) · [web-sdk Get started](https://github.com/StakeEngine/web-sdk#getStarted).
+
+### 2. Vendor the SDKs
+
+`git clone` refuses a non-empty directory. Remove the placeholders, then clone **into** `math/` and `web/` (from this `SlotFolder/` directory):
+
+```powershell
+Remove-Item -Force math\README.md, web\README.md
+
+git clone --depth 1 https://github.com/StakeEngine/math-sdk.git math
+git clone --depth 1 https://github.com/StakeEngine/web-sdk.git web
+
+# Drop nested repos so SlotFolder stays one tree (recommended for source handoff)
+Remove-Item -Recurse -Force math\.git, web\.git
+```
+
+Git Bash equivalent: `rm -f math/README.md web/README.md`, then the same `git clone` lines, then `rm -rf math/.git web/.git`.
+
+After this, `math/` is the math-sdk tree (`games/`, `Makefile`, …) and `web/` is the web-sdk monorepo (`apps/`, `packages/`, `package.json`, …). Kit samples such as `games/0_0_cluster` and `apps/cluster` come with the kits; leave them in place. Do not duplicate them to `games/<game_id>` / `apps/<game_id>` until fork-lock.
+
+### 3. Install kit dependencies
+
+```powershell
+# Math — from SlotFolder/math
+make setup
+
+# Web — from SlotFolder/web
+pnpm install
+```
+
+Init is done when both commands finish without error. You still cannot produce **your** books or spin **your** slot until a `<game_id>` exists. Optionally, `pnpm run storybook --filter=cluster` (from `web/`) only proves the web toolchain; it is the Stake sample, not this project.
+
+Then continue with **Run locally** after fork-lock and the sample copy.
+
 ## Run locally
 
-Math (from `math/`, after the SDK is vendored):
+Math (from `math/`, after Init):
 
 ```sh
 make setup
@@ -35,7 +93,7 @@ make run GAME=<game_id>
 
 Uncompressed / small `num_sim_args` first. Full run + compression + Rust optimize produces `games/<game_id>/library/publish_files/`.
 
-Web (from `web/`, after the SDK is vendored):
+Web (from `web/`, after Init):
 
 ```sh
 pnpm install
@@ -43,8 +101,6 @@ pnpm run storybook --filter=<game_id>   # UI vs local/random books; no Stake log
 pnpm run dev --filter=<game_id>         # RGS only after a live session query string
 pnpm run build --filter=<game_id>
 ```
-
-Tooling expected by the kits (Windows): Python 3.12, Make, Node 22.16, pnpm 10.5, Rust/Cargo for the optimizer.
 
 ## Assemble frontend static folder
 

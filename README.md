@@ -7,13 +7,14 @@ Two-root layout. Framework is reference only. The slot is a self-contained Stake
 ```
 /SLOT-FRAMEWORK
 ├── /Framework     ← reference only; never a runtime dependency
+│   └── Content/Game Design Documents/  ← designer uploads (mechanics, aesthetics) before development
 └── /SlotFolder    ← Stake project: math + web (source). ACP gets build outputs from here
     ├── math/      ← math-sdk tree; game in games/<game_id>/
     ├── web/       ← web-sdk tree; game in apps/<game_id>/
-    └── README.md  ← local run + ACP upload steps
+    └── README.md  ← init (SDKs) + local run + ACP upload steps
 ```
 
-- **`/Framework`** — Guides, recipes, lists, mechanics reports, unused assets. Do not build the slot here. Do not import this path from math or web.
+- **`/Framework`** — Guides, recipes, lists, unused assets. **`Content/Game Design Documents/`** is where the designer puts mechanics, aesthetics, and related specs **before** anyone builds in `SlotFolder`. Do not import this path from math or web.
 - **`/SlotFolder`** — The actual game. All code, config, and **copied** assets live here. Self-contained: it must run without `/Framework`.
 
 ## Isolation rule
@@ -29,10 +30,12 @@ Dragging the whole `SlotFolder` out of this repo is a **source handoff** (to ano
 
 ## How to work
 
-1. **Context & guides** — Read from `/Framework` (Content, recipes, lists). Do not treat Framework as part of the deliverable.
-2. **Assets** — Copy from `/Framework/Assets` (Graphics, Music, SoundEffects) into the web app under `/SlotFolder/web` as needed.
-3. **Build** — Develop only inside `/SlotFolder` (`math/` and `web/`). Official kits: [Math SDK](https://github.com/StakeEngine/math-sdk), [Web SDK](https://github.com/StakeEngine/web-sdk).
-4. **Submit** — Upload the two ACP artifacts below. Leave `/Framework` and the rest of this repo off the platform.
+1. **Design** — Designer uploads mechanics, aesthetics, and related specs into [`Framework/Content/Game Design Documents/`](Framework/Content/Game%20Design%20Documents/). No sample copy in `SlotFolder` until that design is `fork-locked`.
+2. **Context & guides** — Read from `/Framework` (recipes, lists, inspiration reports, [`Content/SkillGuides/`](Framework/Content/SkillGuides/README.md)). Do not treat Framework as part of the deliverable.
+3. **Assets** — Copy from `/Framework/Assets` (Graphics, Music, SoundEffects) into the web app under `/SlotFolder/web` as needed.
+4. **Init** — Vendor the math/web SDKs and install toolchain per [`SlotFolder/README.md` § Init](SlotFolder/README.md#init). No `<game_id>` copy until the GDD is `fork-locked`.
+5. **Build** — Develop only inside `/SlotFolder` (`math/` and `web/`). Official kits: [Math SDK](https://github.com/StakeEngine/math-sdk), [Web SDK](https://github.com/StakeEngine/web-sdk).
+6. **Submit** — Upload the two ACP artifacts below. Leave `/Framework` and the rest of this repo off the platform.
 
 ## Submit (Stake-compatible)
 
@@ -48,4 +51,4 @@ ACP expects **two** imports, then **Publish Game** for each, then **two** approv
 
 Do not upload `/Framework`. Do not upload the raw `SlotFolder` tree as a single zip.
 
-Full local-run and assemble steps: [`SlotFolder/README.md`](SlotFolder/README.md).
+Init, local-run, and assemble steps: [`SlotFolder/README.md`](SlotFolder/README.md).

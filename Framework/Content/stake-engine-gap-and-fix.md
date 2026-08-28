@@ -1,6 +1,8 @@
 # Stake Engine — Gaps and Fix
 
-Working brief for making this Framework ready to develop slots for Stake Engine. Out of scope until later: production art/audio. Open product decision: lock **cluster vs scatter (or a 5×5 hybrid)** before copying samples.
+Working brief for making this Framework ready to develop slots for Stake Engine. Out of scope until later: production art/audio. **Do not lock cluster vs scatter up front.** Designers put mechanics and aesthetics in `Framework/Content/Game Design Documents/` **before** SlotFolder development. The Stake sample pair is an output of that design (`fork-locked` / template §14), not a prerequisite.
+
+Adapted Stake operating docs (currency scales, books, RTP, RGS/replay, approval, events, validators): [`Framework/Content/SkillGuides/`](SkillGuides/README.md). Reference only; never import into `SlotFolder`.
 
 ---
 
@@ -118,20 +120,21 @@ Rule: if it is not in the catalog, math must not emit it and the UI must not req
 
 1. ~~Readme — isolation rule, `SlotFolder` layout, two ACP uploads (not “drag folder to Stake”).~~
 2. Toolchain / setup — Windows: Python 3.12, Make, Node 22.16, pnpm 10.5, Rust; `make setup` + `pnpm install`.
-3. Slot bootstrap — which sample to copy, rename `game_id`, first green Storybook + first 100 uncompressed sims.
-4. Publish checklist — `publish_files/` + frontend `build/` + ACP steps.
-5. `parts.txt` — complete **SLOT BACKEND** + keep frontend list; mark each as Framework asset vs SDK-provided UI.
+3. Slot bootstrap — design of record in `Game Design Documents/` (`fork-locked` / §14) names the sample pair; then rename `game_id`, first green Storybook + first 100 uncompressed sims.
+4. ~~GDD folder — `Framework/Content/Game Design Documents/` (drop folder + optional template). Mechanic fork is derived, not assumed.~~ Designer uploads specs here before development.
+5. Publish checklist — `publish_files/` + frontend `build/` + ACP steps. Start from SkillGuides [02](SkillGuides/02-book-package.md), [05](SkillGuides/05-approval-and-compliance.md), [09](SkillGuides/09-artifact-validators.md).
+6. `parts.txt` — complete **SLOT BACKEND** + keep frontend list; mark each as Framework asset vs SDK-provided UI.
 
 ### Recipes (mechanic → SDK, not generic slot theory)
 
-6. Tumble / cascade (`tumble_board_event` + frontend tumble).
-7. Win model: cluster **or** scatter (whichever you lock).
-8. Free spins trigger / retrigger / counters.
-9. Multipliers: positional (cluster) **or** bombs / global (scatter).
-10. Bet modes: base, ante, bonus buy (`BetMode` + frontend mode).
-11. Adding a bookEvent — math emit + handler + Storybook story.
-12. Asset ingest — copy from `Framework/Assets` into the web app; Pixi load names, Spine vs sprite, audio via Howler.
-13. RTP / optimize / PAR — when to run the Rust optimizer, what “hit target RTP” means.
+7. Tumble / cascade (`tumble_board_event` + frontend tumble).
+8. Win model: cluster **or** scatter (whichever the Game Design Documents derived).
+9. Free spins trigger / retrigger / counters.
+10. Multipliers: positional (cluster) **or** bombs / global (scatter).
+11. Bet modes: base, ante, bonus buy (`BetMode` + frontend mode).
+12. Adding a bookEvent — math emit + handler + Storybook story. See [07](SkillGuides/07-event-animation-playback.md).
+13. Asset ingest — copy from `Framework/Assets` into the web app; Pixi load names, Spine vs sprite, audio via Howler. Pixi host rules: [10](SkillGuides/10-pixi-svelte-lifecycle.md).
+14. RTP / optimize / PAR — when to run the Rust optimizer, what “hit target RTP” means. See [03](SkillGuides/03-rtp-signoff.md). Currency ×1e6 vs ×100: [01](SkillGuides/01-currency-scales.md).
 
 Optional later: i18n, win-cap, force-record analysis. Not required to start.
 
@@ -154,9 +157,9 @@ Without an account you can still develop (Storybook + local math JSON). You cann
 
 ## Implementation order
 
-1. Lock mechanic (cluster vs scatter vs hybrid).
+1. Designer uploads mechanics, aesthetics, and related specs into `Framework/Content/Game Design Documents/` (`fork-locked` / template §14). Win model + multiplier family derive the sample pair.
 2. ~~Rewrite readme (isolation + two uploads).~~
-3. Scaffold `SlotFolder/math` and `SlotFolder/web` from the matching samples.
+3. Scaffold `SlotFolder/math` and `SlotFolder/web` from the Game Design Documents Stake mapping.
 4. Write the event catalog; delete/add handlers until both sides match.
 5. Write setup + bootstrap + the recipes above.
 6. Fill `parts.txt` backend.
