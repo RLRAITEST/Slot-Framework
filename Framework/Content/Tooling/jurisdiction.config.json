@@ -1,0 +1,103 @@
+{
+  "officialDocs": "https://stake-engine.com/docs/approval-guidelines/jurisdiction-requirements",
+  "approvalGuidelines": "https://stake-engine.com/docs/approval-guidelines",
+  "math": {
+    "rtpMinPercent": 90,
+    "rtpMaxPercent": 98,
+    "modeRtpDeltaPercent": 0.5,
+    "rtpTolerancePercent": 0.2,
+    "maxWinMinHitEvery": 20000000,
+    "baseHitRateMaxEvery": 20,
+    "baseHitRateTypicalEvery": { "min": 3, "max": 8 },
+    "payoutScale": 100,
+    "targetRtpPercent": 96,
+    "maxWinX": 5000
+  },
+  "title": {
+    "bannedSubstrings": [
+      "megaways",
+      "xways",
+      "megaways™",
+      "xways™"
+    ],
+    "bannedPatterns": [
+      {
+        "id": "enhanced-rtp",
+        "pattern": "(enhanced|boosted|increased|improved|upgraded|higher)\\s+rtp",
+        "reason": "Do not claim Enhanced/Boosted (or synonym) RTP in the title."
+      },
+      {
+        "id": "gates-of",
+        "pattern": "\\bgates of\\b",
+        "reason": "Do not use 'Gates of ...' titles (implies affiliation with an established series)."
+      },
+      {
+        "id": "bonanza",
+        "pattern": "\\bbonanza\\b",
+        "reason": "Do not use '... Bonanza' titles (implies affiliation with an established series)."
+      }
+    ]
+  },
+  "social": {
+    "note": "Apply only when social=true / Stake.US. Default real-money build keeps casino terms.",
+    "currencies": ["SC", "GC"],
+    "forbidDollarPrefix": true,
+    "betLevelTemplatePrefix": "us_",
+    "restrictedReplacements": [
+      { "phrase": "bonus buy", "replacement": "bonus / feature" },
+      { "phrase": "buy bonus", "replacement": "get bonus" },
+      { "phrase": "place your bets", "replacement": "come and play / join in the game" },
+      { "phrase": "total bet", "replacement": "total play" },
+      { "phrase": "bet amount", "replacement": "play amount" },
+      { "phrase": "autobet", "replacement": "autoplay" },
+      { "phrase": "auto bet", "replacement": "autoplay" },
+      { "phrase": "rebet", "replacement": "respin" },
+      { "phrase": "cost of", "replacement": "can be played for" },
+      { "phrase": "at the cost of", "replacement": "for" },
+      { "phrase": "pay out", "replacement": "win / won" },
+      { "phrase": "paid out", "replacement": "win / won" },
+      { "phrase": "pays out", "replacement": "won" },
+      { "phrase": "betting", "replacement": "playing" },
+      { "phrase": "deposit", "replacement": "get coins" },
+      { "phrase": "withdraw", "replacement": "redeem" },
+      { "phrase": "purchase", "replacement": "play" },
+      { "phrase": "gamble", "replacement": "play" },
+      { "phrase": "wager", "replacement": "play" },
+      { "phrase": "currency", "replacement": "token" },
+      { "phrase": "credit", "replacement": "balance" },
+      { "phrase": "fund", "replacement": "balance" },
+      { "phrase": "money", "replacement": "coins" },
+      { "phrase": "cash", "replacement": "coins" },
+      { "phrase": "bought", "replacement": "instantly triggered" },
+      { "phrase": "buy", "replacement": "play" },
+      { "phrase": "bets", "replacement": "plays" },
+      { "phrase": "bet", "replacement": "play" },
+      { "phrase": "pays", "replacement": "wins" },
+      { "phrase": "paid", "replacement": "won" },
+      { "phrase": "pay", "replacement": "win" },
+      { "phrase": "stake", "replacement": "play amount" }
+    ],
+    "uiSurfaces": [
+      "bet button",
+      "game info / paytable",
+      "bet amount field",
+      "autoplay labels and popups",
+      "bonus-buy label and confirmation",
+      "insufficient-funds error",
+      "replay window"
+    ]
+  },
+  "thumbnail": {
+    "minMeanLuminance": 80,
+    "minEdgeLuminance": 40,
+    "edgeStripRatio": 0.08,
+    "forbidBakedText": true,
+    "forbidBakedMultipliers": true,
+    "note": "Brightness is measurable. Baked wording/multipliers on background or foreground is a manual gate."
+  },
+  "prechecks": {
+    "authenticateOnLaunch": true,
+    "playRequestOnBet": true,
+    "spacebarBoundToBet": true
+  }
+}

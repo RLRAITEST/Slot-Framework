@@ -8,7 +8,7 @@ Approval requires player-facing rules: paytable, modes, FS, RTP, max win, and a 
 
 Write copy from the **GDD**, not from inspiration reports. After fork, put the text in the web app (SDK game-info / paytable component). Skin with assets copied from `Framework/Assets` if needed.
 
-Social mode wording: [05-approval-and-compliance.md](05-approval-and-compliance.md). Default build uses normal casino terms unless `social=true`.
+Social mode wording: [05-approval-and-compliance.md](05-approval-and-compliance.md), [13-jurisdiction-requirements.md](13-jurisdiction-requirements.md). Default build uses normal casino terms unless `social=true`.
 
 ## When
 
@@ -52,7 +52,7 @@ Upstream variants say “wins” vs “pays and plays” and include a year on t
 - [ ] FS trigger text matches math (`3 scatters = N spins` or whatever GDD says).
 - [ ] Buy/ante cost matches `index.json` / `BetMode` cost.
 - [ ] Disclaimer visible.
-- [ ] Social build (if any) passes the word list in [05](05-approval-and-compliance.md).
+- [ ] Social build (if any) passes the word list in [05](05-approval-and-compliance.md) / [13](13-jurisdiction-requirements.md).
 
 ## Do not
 

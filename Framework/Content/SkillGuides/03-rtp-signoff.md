@@ -35,10 +35,10 @@ In GDD §11 and `game_config.py`, same values:
 
 | Target | Typical Stake band (from upstream approval skill; confirm on [engine docs](https://stake-engine.com/docs) if they change) |
 |---|---|
-| RTP default | 90%–98% |
+| RTP default | 90%–98% ([13](13-jurisdiction-requirements.md)) |
 | Mode-to-mode RTP | within **0.5%** absolute of each other |
-| Max win (× stake) | advertised cap; must be **achievable** |
-| Hit frequency / feature frequency | intent bands, not copied from a competitor |
+| Max win (× stake) | advertised cap; must be **achievable** (1 in 20,000,000 or more frequent) |
+| Hit frequency / feature frequency | intent bands, not copied from a competitor; base >0-win typically 1-in-3–8, not rarer than 1 in 20 |
 
 If a field is still TBD, write `TBD` and do not sign off.
 
@@ -99,6 +99,8 @@ Copy a short report into `SlotFolder/math/games/<game_id>/` (not imported by Pyt
 ### 8. Optimizer
 
 Use the **Rust optimizer the math-sdk documents**, after books exist. “Hit target RTP” means: after optimize, simulated and book-weighted RTP are inside tolerance **and** event streams still match GDD §12. Do not optimize by editing lookup weights by hand.
+
+If you copied [`Tooling/optimize-luts.mjs`](../Tooling/README.md) into the game folder, it is an optional JS LUT weighter — still run `jurisdiction.mjs --report` on its output. Official path stays the kit’s Rust optimizer.
 
 ## Do not
 

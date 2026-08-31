@@ -10,7 +10,7 @@ Upstream `slot-qa-engineer` is a generic test-plan skill. This Framework needs a
 |---|---|
 | Math | `make run`, [02](02-book-package.md), [03](03-rtp-signoff.md), [09](09-artifact-validators.md) |
 | UI | Storybook stories per bookEvent ([07](07-event-animation-playback.md)) |
-| Platform | [04](04-rgs-and-replay.md), [05](05-approval-and-compliance.md) |
+| Platform | [04](04-rgs-and-replay.md), [05](05-approval-and-compliance.md), [13](13-jurisdiction-requirements.md) |
 
 No cheat debug menu required unless the kit already has one. Prefer fixture books in Storybook.
 
@@ -55,7 +55,7 @@ Each bug: severity (block/approval vs polish), steps, mode, book `id` if known, 
 
 ### 6. Sign-off
 
-ACP only if: [05](05-approval-and-compliance.md) complete, math preliminary-or-final RTP labeled honestly, no open blockers. Residual risks listed (e.g. “social mode not in this drop”).
+ACP only if: [05](05-approval-and-compliance.md) complete, [13](13-jurisdiction-requirements.md) title/math/thumbnail (and social if in scope) pass, math preliminary-or-final RTP labeled honestly, no open blockers. Residual risks listed (e.g. “social mode not in this drop”).
 
 ## Do not
 

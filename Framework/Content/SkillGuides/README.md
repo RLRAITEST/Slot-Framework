@@ -4,7 +4,7 @@ Operating docs derived from [egorfedorov/Slot-Casino-Game-Developer-Skills-for-S
 
 ## Isolation
 
-These files live in `/Framework`. Python, Vite, Make, and pnpm must never import or path to this folder. If a game needs a snapshot (event catalog, disclaimer text, validator script), **copy** it into `SlotFolder` after fork-lock.
+These files live in `/Framework`. Python, Vite, Make, and pnpm must never import or path to this folder. If a snapshot is needed (event catalog, disclaimer text, validator / jurisdiction scripts), **copy** it into `SlotFolder` after fork-lock. Tooling templates: [`Framework/Content/Tooling/`](../Tooling/README.md).
 
 Do not install the upstream skill pack as Cursor skills until these guides have been followed. Upstream event names (`spinStart`, `reelsStop`, `winLine`, `roundResult`) and paths (`games/Darumas`, `config.yml` paylines) are **wrong** for this repo.
 
@@ -24,6 +24,7 @@ Do not install the upstream skill pack as Cursor skills until these guides have 
 | 10 | [pixi-svelte-lifecycle.md](10-pixi-svelte-lifecycle.md) | After web-sdk is vendored | 3 |
 | 11 | [autoplay-and-turbo.md](11-autoplay-and-turbo.md) | HUD polish; SDK chrome first | later |
 | 12 | [qa-before-acp.md](12-qa-before-acp.md) | After Storybook + books | 6, 8 |
+| 13 | [jurisdiction-requirements.md](13-jurisdiction-requirements.md) | Title, social, thumbnail, math bands | 5 |
 
 ## Skipped on purpose
 
@@ -38,3 +39,4 @@ Official kits (always win if a guide disagrees with the kit):
 - [Math SDK](https://github.com/StakeEngine/math-sdk)
 - [Web SDK](https://github.com/StakeEngine/web-sdk)
 - [Stake Engine docs](https://stake-engine.com/docs)
+- [Jurisdiction requirements](https://stake-engine.com/docs/approval-guidelines/jurisdiction-requirements)

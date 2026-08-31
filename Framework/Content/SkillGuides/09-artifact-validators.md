@@ -14,7 +14,7 @@ Suggested copy destination after fork-lock (you create it):
 SlotFolder/math/games/<game_id>/tools/
 ```
 
-or a `SlotFolder/math/tools/` folder that only takes `<game_id>` as an argument. No path to `/Framework`.
+Copy the whole [`Framework/Content/Tooling/`](../Tooling/README.md) directory (`jurisdiction.mjs` + the four pipeline templates). No path to `/Framework`.
 
 ## When
 
@@ -60,11 +60,13 @@ For a sample of rounds (all, if small; else 1k random ids):
 # examples — adjust to the copied filenames
 node tools/validate-books-index.mjs --index games/<game_id>/library/publish_files/index.json --format text
 python tools/check_books_package.py --index games/<game_id>/library/publish_files/index.json
+node tools/jurisdiction.mjs --title="Working Title"
+node tools/jurisdiction.mjs --report=games/<game_id>/library/publish_files/configs/lut_optimization_report.json
 ```
 
 Non-zero exit = blocker.
 
-Social copy audit (`audit-checklist.mjs` + `compliance-rules.json`): only when you are shipping a social build. Copy `compliance-rules.json` next to the script. Target the **assembled frontend strings**, not Framework markdown.
+Social copy audit (`jurisdiction.mjs --copy … --social`, or upstream `audit-checklist.mjs` + `compliance-rules.json`): only when you are shipping a social build. Copy `jurisdiction.config.json` next to the script. Target the **assembled frontend strings**, not Framework markdown.
 
 ### 4. What “adapted” means
 
@@ -91,6 +93,7 @@ Not in the upstream book scripts, required here:
 - Do not `require()` or `import` scripts from `Framework/Content`.
 - Do not fail CI on upstream event names.
 - Do not treat a validator pass as RTP sign-off ([03](03-rtp-signoff.md) still required).
+- Do not treat `jurisdiction.mjs` as a substitute for live RGS prechecks ([04](04-rgs-and-replay.md), [13](13-jurisdiction-requirements.md)).
 
 ## Source
 

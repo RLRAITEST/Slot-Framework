@@ -122,8 +122,8 @@ Rule: if it is not in the catalog, math must not emit it and the UI must not req
 2. Toolchain / setup — Windows: Python 3.12, Make, Node 22.16, pnpm 10.5, Rust; `make setup` + `pnpm install`.
 3. Slot bootstrap — design of record in `Game Design Documents/` (`fork-locked` / §14) names the sample pair; then rename `game_id`, first green Storybook + first 100 uncompressed sims.
 4. ~~GDD folder — `Framework/Content/Game Design Documents/` (drop folder + optional template). Mechanic fork is derived, not assumed.~~ Designer uploads specs here before development.
-5. Publish checklist — `publish_files/` + frontend `build/` + ACP steps. Start from SkillGuides [02](SkillGuides/02-book-package.md), [05](SkillGuides/05-approval-and-compliance.md), [09](SkillGuides/09-artifact-validators.md).
-6. `parts.txt` — complete **SLOT BACKEND** + keep frontend list; mark each as Framework asset vs SDK-provided UI.
+5. Publish checklist — `publish_files/` + frontend `build/` + ACP steps. Start from SkillGuides [02](SkillGuides/02-book-package.md), [05](SkillGuides/05-approval-and-compliance.md), [09](SkillGuides/09-artifact-validators.md), [13](SkillGuides/13-jurisdiction-requirements.md). Copy [`Content/Tooling/`](Tooling/README.md) into the game `tools/` folder after fork-lock.
+6. `parts.txt` — complete **SLOT BACKEND** + keep frontend list; mark each as Framework asset vs SDK-provided UI. Backend rows include math publish + Tooling copies (`math-simulate`, `math-optimize-luts`, `math-optimize-assets`, `math-jurisdiction-check`).
 
 ### Recipes (mechanic → SDK, not generic slot theory)
 

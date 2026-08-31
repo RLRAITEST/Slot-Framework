@@ -27,7 +27,7 @@ After Storybook spin path works. Before [05](05-approval-and-compliance.md). Opt
    - optional: any win / FS trigger — only if the UI offers those toggles; then implement them deterministically
 5. Connection loss: stop; do not queue plays. Resume is a new explicit start.
 6. Autoplay must not skip authenticate/play/end-round order ([04](04-rgs-and-replay.md)).
-7. Social mode: no “AutoBET” / “Bet” in labels ([05](05-approval-and-compliance.md)).
+7. Social mode: no “AutoBET” / “Bet” in labels ([05](05-approval-and-compliance.md), [13](13-jurisdiction-requirements.md)).
 
 QA: 1 spin, N spins, FS trigger during autoplay, insufficient balance, stop mid-flight (no double `play`).
 

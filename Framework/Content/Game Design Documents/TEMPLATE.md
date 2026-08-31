@@ -16,9 +16,11 @@ Inspiration reports in `MechanicsInspiration/` are questions, not numbers to cop
 ## 1. Identity
 
 - Working title:
+- Official title (ACP; must pass [13](../SkillGuides/13-jurisdiction-requirements.md) naming):
 - One-sentence thesis (what *one* rule does the emotional work):
 - Inspiration (names only; not clone targets):
 - Explicitly out of scope (paylines, extra bonuses, etc.):
+- Stake.US / social (`social=true`) in this drop: yes / no / later:
 
 ---
 
@@ -151,9 +153,9 @@ Targets only. Proof is sims. Do not paste a competitor’s RTP sheet.
 
 | Target | Value | Notes |
 |---|---|---|
-| RTP (default) | | |
-| Max win (× stake) | | |
-| Hit frequency intent | | |
+| RTP (default) | | Stake band 90%–98%; modes within 0.5% |
+| Max win (× stake) | | Must be achievable (1 in 20M or more frequent) |
+| Hit frequency intent | | Base >0-win typically 1-in-3–8, not rarer than 1 in 20 |
 | Feature frequency intent | | |
 | Volatility intent | | |
 
@@ -184,7 +186,7 @@ For each frontend part: SDK already provides chrome, copy from `Framework/Assets
 |---|---|---|
 | slot-ramme | | |
 | slot-logo | | |
-| slot-thumbnail | | |
+| slot-thumbnail | | bright tile; no dark edges; no baked wording/multipliers ([13](../SkillGuides/13-jurisdiction-requirements.md)) |
 | slot-background | | |
 | slot-win_screen | | |
 | slot-big_win_screen | | |

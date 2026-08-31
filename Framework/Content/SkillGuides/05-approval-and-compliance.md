@@ -2,11 +2,11 @@
 
 ## Why
 
-Gap-brief item 5 (publish checklist) was empty. Upstream `game-approval-checklist.md`, `stake-engine-frontend-checklist.md`, `compliance-checklist.md`, and `compliance-rules.json` are Stake’s QA/jurisdiction gates. Use this file as the pre-ACP punch list. Confirm any numeric band against current [approval guidelines](https://stake-engine.com/docs) if they drift.
+Gap-brief item 5 (publish checklist) was empty. Upstream `game-approval-checklist.md`, `stake-engine-frontend-checklist.md`, `compliance-checklist.md`, and `compliance-rules.json` are Stake’s QA/jurisdiction gates. Use this file as the pre-ACP punch list. Confirm any numeric band against current [approval guidelines](https://stake-engine.com/docs/approval-guidelines) if they drift. Jurisdiction (title, social, thumbnail, math bands): [13](13-jurisdiction-requirements.md).
 
 ## How it maps here
 
-Two ACP uploads ([root README](../../../README.md)): math `publish_files/` + assembled frontend folder. Two approval requests. This checklist is **both** sides plus jurisdiction. Social-language (Stake.US) is a **later** flag (`social=true`); still list it so copy/HUD do not paint you into a corner.
+Two ACP uploads ([root README](../../../README.md)): math `publish_files/` + assembled frontend folder. Two approval requests. This checklist is **both** sides plus jurisdiction. Social-language (Stake.US) is a **later** flag (`social=true`); still list it so copy/HUD do not paint you into a corner. Title/math/thumbnail checkers: copy [`Framework/Content/Tooling/`](../Tooling/README.md) into `SlotFolder` after fork-lock.
 
 `parts.txt` explainer/paytable rows are filled using [08-game-info-and-disclaimer.md](08-game-info-and-disclaimer.md).
 
@@ -25,13 +25,18 @@ Work top to bottom. Unchecked item = do not request approval.
 - [ ] No IP-infringing art; no Stake branding in assets you created.
 - [ ] Authenticate succeeds on launch ([04](04-rgs-and-replay.md)).
 - [ ] Spin/bet control sends a successful `play` request.
-- [ ] Title unique; no trademarked mechanic names (e.g. Megaways, Xways) unless you have rights.
-- [ ] Assets not offensive/discriminatory.
+- [ ] Title unique; does **not** contain: Megaways, Xways, Enhanced/Boosted (or synonym) RTP, `Gates of …`, `… Bonanza`. Must not imply affiliation with an established publisher or series ([13](13-jurisdiction-requirements.md)).
+- [ ] Assets not offensive/discriminatory/inappropriate.
+- [ ] Presentation is not confusingly similar to an existing title or series (review stops if two or more similarity criteria apply).
 
 ### Thumbnail (ACP tile)
 
-- [ ] Bright tile; avoids dark edges that clash with Stake chrome.
-- [ ] Background and foreground readable; title inside inner margins.
+- [ ] Bright tile; does not clash with the Stake background (careful with **dark edges**).
+- [ ] Background image bright and appropriate.
+- [ ] Foreground appropriate; key focus area filled.
+- [ ] Gradient a similar colour to the background.
+- [ ] Title fits inner guidelines; not too close to the edges.
+- [ ] **No wording or multipliers** on background or foreground (title is a Tile Editor layer).
 
 ### Math (see also [03](03-rtp-signoff.md))
 
@@ -71,6 +76,8 @@ Work top to bottom. Unchecked item = do not request approval.
 
 ### Jurisdiction / social (when `social=true` / Stake.US)
 
+Full list and CLI: [13-jurisdiction-requirements.md](13-jurisdiction-requirements.md). Official: [jurisdiction-requirements](https://stake-engine.com/docs/approval-guidelines/jurisdiction-requirements).
+
 Replace restricted words in **your** copy (SDK chrome may already swap; verify):
 
 | Avoid | Use |
@@ -107,4 +114,5 @@ Replace restricted words in **your** copy (SDK chrome may already swap; verify):
 ## Source
 
 Upstream: `stake-game-developer/references/game-approval-checklist.md`, `stake-engine-frontend-checklist.md`, `compliance-rules.json`  
-Official: https://stake-engine.com/docs/approval-guidelines
+Official: https://stake-engine.com/docs/approval-guidelines  
+Jurisdiction: https://stake-engine.com/docs/approval-guidelines/jurisdiction-requirements

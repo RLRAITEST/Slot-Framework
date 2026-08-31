@@ -48,11 +48,21 @@ slot-explainer_screen
 
 **SLOT BACKEND**
 
+MATH CONFIG
+math-game_config
+math-bet_modes
+math-run
 
+MATH PUBLISH
+math-books
+math-lookup_tables
+math-index.json
+math-publish_files
 
+MATH TOOLING (copy from Framework/Content/Tooling after fork-lock)
+math-simulate
+math-optimize-luts
+math-optimize-assets
+math-jurisdiction-check
 
-
-Slot game design:
-5x5 (sweet bonanza style)
-sugar rush style
 
