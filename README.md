@@ -1,5 +1,9 @@
 # Slot Framework
 
+**This repository is a base template. Fork it for every slot. Do not develop a game in this checkout or on this repo's `main`.**
+
+The upstream tree stays empty of game work: no GDD of record, no art drop, no vendored math/web SDKs, no `games/<game_id>` or `apps/<game_id>`. Clone or GitHub-fork into a **new directory**, then do all design and build work there. Do not push slot-specific files back here.
+
 Two-root layout. Framework is reference only. The slot is a self-contained Stake Engine project under `SlotFolder`. ACP takes **two uploads of build outputs**, not this repo and not a zip of `SlotFolder`.
 
 ## Repository layout
@@ -30,7 +34,8 @@ Dragging the whole `SlotFolder` out of this repo is a **source handoff** (to ano
 
 ## How to work
 
-1. **Design** — Designer uploads mechanics, aesthetics, and related specs into [`Framework/Content/Game Design Documents/`](Framework/Content/Game%20Design%20Documents/). No sample copy in `SlotFolder` until that design is `fork-locked`.
+0. **Fork first** — Copy this repo (GitHub fork, or `git clone` into a new folder). Never Init, drop a GDD, or add assets in the template directory.
+1. **Design** — In the fork, designer uploads mechanics, aesthetics, and related specs into [`Framework/Content/Game Design Documents/`](Framework/Content/Game%20Design%20Documents/). No sample copy in `SlotFolder` until that design is `fork-locked`.
 2. **Context & guides** — Read from `/Framework` (recipes, lists, inspiration reports, [`Content/SkillGuides/`](Framework/Content/SkillGuides/README.md)). Do not treat Framework as part of the deliverable.
 3. **Assets** — Copy from `/Framework/Assets` (Graphics, Music, SoundEffects) into the web app under `/SlotFolder/web` as needed.
 4. **Init** — Vendor the math/web SDKs and install toolchain per [`SlotFolder/README.md` § Init](SlotFolder/README.md#init). No `<game_id>` copy until the GDD is `fork-locked`.

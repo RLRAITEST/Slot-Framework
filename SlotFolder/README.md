@@ -1,5 +1,7 @@
 # SlotFolder
 
+**Init and game copies belong in a fork of Slot Framework, not in the upstream template checkout.**
+
 Self-contained Stake Engine project. Math SDK lives in `math/`. Web SDK lives in `web/`. This folder does not import, path to, or depend on `/Framework`.
 
 Copy assets **into** this tree when needed. Dragging `SlotFolder` is a **source** handoff. ACP gets **build outputs** only (two uploads).
@@ -26,7 +28,7 @@ Do not add imports, workspace packages, Make includes, Vite aliases, or scripts 
 
 ## Init
 
-`math/` and `web/` ship as empty kit roots (placeholder READMEs only). Init vendors the official SDKs into those folders and installs dependencies. This does **not** create your game. Do not copy `games/0_0_*` or `apps/cluster|scatter` to a `<game_id>` until the design of record in `Framework/Content/Game Design Documents/` is `fork-locked` (template §14).
+`math/` and `web/` ship as empty kit roots (placeholder READMEs only). Run Init only in a game fork. Init vendors the official SDKs into those folders and installs dependencies. This does **not** create your game. Do not copy `games/0_0_*` or `apps/cluster|scatter` to a `<game_id>` until the design of record in `Framework/Content/Game Design Documents/` is `fork-locked` (template §14).
 
 ### 1. Toolchain (Windows)
 

@@ -1,6 +1,6 @@
 # Game Design Documents
 
-Designer drop folder. **All specs for this slot live here** — mechanics, aesthetics, audio, HUD, paytable, and anything else that defines the game. Development in `/SlotFolder` does not start until the design of record is in this folder.
+Designer drop folder **in a game fork**. Do not upload a slot GDD into the upstream template. In the fork, **all specs for that slot live here** — mechanics, aesthetics, audio, HUD, paytable, and anything else that defines the game. Development in `/SlotFolder` does not start until the design of record is in this folder.
 
 Put files here as you author them (Markdown, PDF, Word, images, sheets). Do not put them in `SlotFolder`, `Lists`, `Recipies`, or `MechanicsInspiration`.
 
