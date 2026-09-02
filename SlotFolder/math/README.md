@@ -1,11 +1,22 @@
-# math/
+# Stake Engine Math SDK
 
-Placeholder until Init. Follow [`../README.md` § Init](../README.md#init): remove this file, clone [math-sdk](https://github.com/StakeEngine/math-sdk) into this directory, then `make setup`.
+Welcome to [Stake Engine Math SDK](https://engine.stake.com/)!
 
-Your game then lives at `games/<game_id>/` — only after the GDD is `fork-locked`. Do not copy `games/0_0_*` before that.
+The Math SDK is a Python-based engine for defining game rules, simulating outcomes, and optimizing win distributions. It generates all necessary backend and configuration files, lookup tables, and simulation results.
+   
 
-ACP math upload is **not** this whole tree. After `make run GAME=<game_id>` (with compression/optimize as required), upload:
+For technical details [view the docs](https://stakeengine.github.io/math-sdk/)
 
-`games/<game_id>/library/publish_files/`
 
-Isolation: no imports or paths to `/Framework`. Copy specs into this game folder if you need them at sim time.
+# Installation
+ 
+This repository requires Python3 (version >= 3.12), along with the PIP package installer.
+If the included optimization algorithm is being used, Rust/Cargo will also need to be installed.
+
+It is recommended to use [Make](https://www.gnu.org/software/make/) and setup the engine by running:
+```sh
+make setup
+```
+
+Alternatively, visit our [Setup and Installation page](https://stakeengine.github.io/math-sdk/math_docs/general_overview/) for more details.
+
